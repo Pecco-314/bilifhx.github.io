@@ -29,3 +29,36 @@ function check() {
     $("#input-textarea").html(warning_text);
     $("#result-textarea").html(replace_text);
 }
+
+function contribute() {
+    if ($("#word").val() == "" || $("#replacer").val() == "" || $("#email").val() == "") {
+        Alert("请完整填写表单！");
+    } else
+        Confirm({
+            msg: "确定要提交吗？请确保你提交的词条准确无误。",
+            onOk: function () {
+                let obj = $("#content").serialize();
+                $.ajax({
+                    type: "post",
+                    url: "https://formspree.io/pecco@qq.com",
+                    async: true,
+                    data: obj,
+                    dataType: "json",
+                    success: res => {
+                        Alert({
+                            msg: "提交成功！你的贡献将在审核后收录。",
+                            onOk: function () {
+                                $("#mymodal").modal("hide");
+                            }
+                        })
+                    },
+                    error: res => {
+                        console.log('post error', res);
+                        Alert({
+                            msg: "提交失败，请重试。"
+                        })
+                    }
+                });
+            },
+        });
+}
