@@ -38,7 +38,7 @@ function contribute() {
         Confirm({
             msg: "确定要提交吗？请确保你提交的词条准确无误。",
             onOk: function () {
-                let obj = $("#content").serialize();
+                let obj = $("#myform").serialize();
                 $.ajax({
                     type: "post",
                     url: "https://formspree.io/pecco@qq.com",
