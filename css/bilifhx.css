@@ -1,0 +1,40 @@
+.flex-center {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mytextarea {
+    height: 25vh;
+}
+
+.mytextarea:empty:before {
+    content: attr(placeholder);
+    color: gray;
+}
+
+.mytextarea:focus:before {
+    content: none;
+}
+
+#main-title-container {
+    height: 23vh;
+}
+
+#main-title {
+    font-family: "Î¢ÈíÑÅºÚ Light";
+    font-size: 5.5vh;
+}
+
+#stat {
+    font-size: 50%;
+}
+
+#textarea-row {
+    padding: 1%;
+}
+
+#button-container {
+    padding: 5vh;
+}
